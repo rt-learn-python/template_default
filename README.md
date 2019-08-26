@@ -17,11 +17,12 @@ You can optionally deactivate by running: `deactivate`
 
 ## Developing
 
-Use of virtual environments is baked in the Makefile.
+Use of virtual environment is baked in the Makefile.
 
 Run `make` to see the list of commands:
 
 ```text
+@echo "make init - initialize virtual environment for you project"
 @echo "make install - install packages"
 @echo "make test - run unit tests"
 @echo "make run - run the main script"
@@ -49,17 +50,13 @@ echo "new_package=1.2.3" >> requirements.txt
 
 ## Unit Tests
 
-### doctests
-
-Run doctests and generate coverage: `python -m coverage run -m doctest main.py`
-
-View coverage report in the terminal: `python -m coverage report`
-
-View coverage report as html: `python -m coverage html`
-
 ### unittest
 
+TODO
+
 ### pytest
+
+TODO
 
 ## TODO
 
