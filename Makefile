@@ -21,7 +21,7 @@ doctest:
 	@python -m doctest main.py
 
 pytest:
-	@python -m pytest --cov-report html
+	@python -m pytest
 
 test: doctest pytest
 
