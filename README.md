@@ -50,9 +50,7 @@ echo "new_package=1.2.3" >> requirements.txt
 
 ## Unit Tests
 
-### unittest
-
-TODO
+This project uses both `doctest` and `pytest` but not `unittest`. The reason being we want to keep the project pythonic as much as possible in which case `unittest` is not.
 
 ### pytest
 

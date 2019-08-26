@@ -15,19 +15,31 @@ init: venv
 install:
 	pip install -Ur requirements.txt
 
-test:
-	@python -m doctest main.py -v
-# 	@python -m doctest main.py
-# 	@py.test tests
+doctest:
+	# @python -m doctest main.py -v
+	@echo "Starting doctest...(no output means no failures)"
+	@python -m doctest main.py
+
+pytest:
+	@python -m pytest --cov-report html
+
+test: doctest pytest
 
 testWithCoverage:
 	@python -m coverage run -m doctest main.py
 
-coverageTerminal: .coverage
-	python -m coverage report
+coverageTerminal: testWithCoverage
+	@echo ===== doctest coverage report =====
+	@python -m coverage report
+	@python -m pytest --cov-report term-missing --cov .
 
-coverageHtml: .coverage
+
+coverageDoctestHtml: testWithCoverage
 	python -m coverage html
+	open htmlcov/index.html
+
+coveragePytestHtml: testWithCoverage
+	python -m pytest --cov-report html --cov .
 	open htmlcov/index.html
 
 clean:
@@ -38,4 +50,4 @@ clean:
 run:
 	@python main.py
 
-.PHONY: help venv init clean install test run
+.PHONY: help venv init clean install test doctest pytest run
